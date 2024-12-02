@@ -82,8 +82,8 @@ server <- function(session, input, output) {
   output$versions <- renderTable({
     r <- version$version.string
     python <- paste(system("python --version", intern=TRUE), collapse="\n")
-    java <- paste(system("java --version", intern=TRUE), collapse="\n")
-    julia <- paste(system("julia --version", intern=TRUE), collapse="\n")
+    java <- "NA" #paste(system("java --version", intern=TRUE), collapse="\n")
+    julia <- "NA" #paste(system("julia --version", intern=TRUE), collapse="\n")
     tribble(
       ~language, ~version,
       "R", r,
