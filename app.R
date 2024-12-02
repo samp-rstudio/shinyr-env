@@ -10,6 +10,7 @@
 library(shiny)
 library(tidyverse)
 library(curl)
+library(reticulate)
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
@@ -33,6 +34,9 @@ ui <- fluidPage(
     h4("OS Release"),
     htmlOutput("osVersion"),
     tableOutput("versions"),
+    
+    h4("Python Version"),
+    htmlOutput("pythonVersion"),
     
     h4("Connect Version"),
     htmlOutput("connectVersion"),
@@ -59,7 +63,14 @@ ui <- fluidPage(
 server <- function(session, input, output) {
   
   output$connectVersion <- renderText({
-    o <- system("/opt/connect/bin/connect --version", intern=TRUE)
+    o <- system("/opt/connect/current/bin/connect --version", intern=TRUE)
+    paste(o, collapse="<br/>")
+  })
+  
+  output$pythonVersion <- renderText({
+    # Use reticulate to access Python and get the version
+    sys <- import("sys")
+    o <- sys$version
     paste(o, collapse="<br/>")
   })
   
