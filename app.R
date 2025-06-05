@@ -16,7 +16,7 @@ library(reticulate)
 ui <- fluidPage(
   
   # Application title
-  titlePanel("Canary"),
+  titlePanel("Canary €"),
   
   # Show a plot of the generated distribution
   mainPanel(
