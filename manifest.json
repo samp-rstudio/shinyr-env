@@ -1,6 +1,7 @@
 {
   "version": 1,
-  "locale": "C",
+  "locale": "ja_JP.UTF-8",
+  "encoding": "UTF-8",
   "platform": "4.4.1",
   "metadata": {
     "appmode": "shiny",
